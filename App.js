@@ -2,14 +2,14 @@ import { StatusBar } from "expo-status-bar";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from "./screens/HomeScreen";
+import HomeScreen from "./screens/Authenticated/HomeScreen";
 import SignupScreen from "./screens/SignupScreen";
 import LoginScreen from "./screens/LoginScreen";
 import MainScreen from "./screens/MainScreen";
 
 const Stack=createNativeStackNavigator();
 export default function App() {
-  const user=false;
+  const user=true;
   return (
     <NavigationContainer >
       <Stack.Navigator screenOptions={{headerShown:false}}>
