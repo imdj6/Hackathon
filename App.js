@@ -6,10 +6,11 @@ import HomeScreen from "./screens/Authenticated/HomeScreen";
 import SignupScreen from "./screens/SignupScreen";
 import LoginScreen from "./screens/LoginScreen";
 import MainScreen from "./screens/MainScreen";
+import UserInfo from "./screens/Authenticated/UserInfo";
 
 const Stack=createNativeStackNavigator();
 export default function App() {
-  const user=true;
+  const user=false;
   return (
     <NavigationContainer >
       <Stack.Navigator screenOptions={{headerShown:false}}>
@@ -17,6 +18,7 @@ export default function App() {
           user?(
             <>
             <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="User" component={UserInfo} />
             </>
           ):(
             <>

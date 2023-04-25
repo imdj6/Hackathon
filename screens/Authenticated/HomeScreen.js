@@ -2,12 +2,16 @@ import { View, Text, SafeAreaView, Image, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { BellIcon, Bars3Icon } from "react-native-heroicons/outline";
 import { Button } from "@rneui/base";
-import MapView, { Marker,Circle } from "react-native-maps";
+import MapView, { Marker, Circle } from "react-native-maps";
 import * as Location from "expo-location";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = ({ navigation }) => {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState();
+
+  // const navigation = useNavigation();
+
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -18,7 +22,6 @@ const HomeScreen = ({ navigation }) => {
 
       let currentlocation = await Location.getCurrentPositionAsync({});
       setLocation(currentlocation);
-      console.log(currentlocation);
     })();
   }, []);
 
@@ -39,7 +42,13 @@ const HomeScreen = ({ navigation }) => {
             <BellIcon color="black" size={30} />
           </View>
           <View>
-            <Bars3Icon color="black" size={30} />
+            <Bars3Icon
+              color="black"
+              size={30}
+              onPress={() => {
+                navigation.push("User");
+              }}
+            />
           </View>
         </View>
       </View>
@@ -73,7 +82,6 @@ const HomeScreen = ({ navigation }) => {
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
             }}
-            mapType="mutedStandard"
           >
             <Marker
               coordinate={{
