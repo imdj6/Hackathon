@@ -2,31 +2,22 @@ import { View, Text, SafeAreaView, Image, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { BellIcon, Bars3Icon } from "react-native-heroicons/outline";
 import { Button } from "@rneui/base";
-import MapView, { Marker, Circle } from "react-native-maps";
-import * as Location from "expo-location";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useNavigationState } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import UserInfo from "./UserInfo";
+import UserBoxes from "../../components/UserBoxes";
+import HomeNav from "../../components/NavOptions/HomeNav";
+import NavTab from "../../components/NavTab";
 
 const HomeScreen = ({ navigation }) => {
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState();
 
-  // const navigation = useNavigation();
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
+  const Stack = createNativeStackNavigator();
 
-      let currentlocation = await Location.getCurrentPositionAsync({});
-      setLocation(currentlocation);
-    })();
-  }, []);
+ 
 
   return (
-    <SafeAreaView className="mt-10 flex-1">
+    <SafeAreaView className="flex-1 mt-9">
       <View className="flex-row items-center justify-between p-2 bg-white">
         <View>
           <Image
@@ -39,11 +30,11 @@ const HomeScreen = ({ navigation }) => {
         </View>
         <View className="flex-row space-x-5 mr-3">
           <View>
-            <BellIcon color="black" size={30} />
+            <BellIcon color="#E75480" size={30} />
           </View>
           <View>
             <Bars3Icon
-              color="black"
+              color="#E75480"
               size={30}
               onPress={() => {
                 navigation.push("User");
@@ -52,67 +43,24 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-      {/* Section of Adding friends and family members starts here */}
-      <View className="flex-row bg-white mt-1 p-2 items-center justify-between">
-        <View>
-          <Text className="font-bold text-xl">Add Friends</Text>
-          <Text className="text-xs font-light">
-            Add a friend to use SOS and Track
-          </Text>
-        </View>
-        <View>
-          <Button
-            title="Add Friends"
-            color={"red"}
-            radius={"md"}
-            raised={true}
-            onPress={() => {}}
-          />
-        </View>
-      </View>
-
-      {/* section having map View involved  and using maps*/}
-      <View className=" p-2">
-        {location && (
-          <MapView
-            style={Styles.map}
-            initialRegion={{
-              latitude: location.coords.latitude,
-              longitude: location.coords.longitude,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          >
-            <Marker
-              coordinate={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421,
-              }}
-              title="Current Location"
-              identifier="current location"
-              pinColor="gold"
-            />
-            <Circle
-              center={{
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-              }}
-              radius={1000}
-            />
-          </MapView>
-        )}
-      </View>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="NavigateCard"
+          component={
+            HomeNav
+          }
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+      <NavTab/>
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
 
-const Styles = StyleSheet.create({
-  map: {
-    width: "100%",
-    height: "75%",
-  },
-});
+
+ 
+

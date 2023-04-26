@@ -10,7 +10,7 @@ import UserInfo from "./screens/Authenticated/UserInfo";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
-  const user = true;
+  const user =true;
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>

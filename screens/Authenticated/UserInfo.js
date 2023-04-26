@@ -5,7 +5,7 @@ import { ScaleIcon,WrenchScrewdriverIcon,ArrowRightOnRectangleIcon,BookOpenIcon,
 import UserBoxes from "../../components/UserBoxes";
 const UserInfo = ({ navigation }) => {
   return (
-    <SafeAreaView className="mt-10 flex-1">
+    <SafeAreaView className=" flex-1 mt-9">
       {/* {Navigation Part Starts Here } */}
       <View className="flex-row items-center justify-between p-2 bg-white">
         <View>
@@ -71,7 +71,7 @@ const UserInfo = ({ navigation }) => {
         {/* {Calling the button by passing props} */}
         <UserBoxes buttonText="History" icon={BookOpenIcon}/>
         <UserBoxes buttonText="Friends" icon={UserGroupIcon}/>
-        <UserBoxes buttonText="Block List" icon={LockClosedIcon}/>
+        <UserBoxes buttonText="Block User" icon={LockClosedIcon}/>
         <UserBoxes buttonText="Settings" icon={WrenchScrewdriverIcon}/>
         <UserBoxes buttonText="Legal" icon={ScaleIcon}/>
         <UserBoxes buttonText="Logout" icon={ArrowRightOnRectangleIcon}/>
