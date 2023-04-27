@@ -2,8 +2,13 @@ import { View, Text, SafeAreaView, Image } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Button } from '@rneui/themed';
+import useAuth from "../hooks/useAuth";
 const MainScreen = () => {
   const navigation = useNavigation();
+
+  // const {onGoogleButtonPress,user}=useAuth();
+
+  const {user} =useAuth();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,6 +29,8 @@ const MainScreen = () => {
       <Text className='font-bold mt-16 mb-5'>Sign Up/Login with Email Id</Text>
       <Button title="Let's Go" color={'blue'} radius={'lg'} raised={true} onPress={()=>{
         navigation.push('Signup');
+        // onGoogleButtonPress
+        // console.log(user)
       }}/>
       </View>
       <Text className='font-bold mb-1 mx-auto'>By Continuing you agree that you have read and </Text>

@@ -7,26 +7,29 @@ import SignupScreen from "./screens/SignupScreen";
 import LoginScreen from "./screens/LoginScreen";
 import MainScreen from "./screens/MainScreen";
 import UserInfo from "./screens/Authenticated/UserInfo";
+import { AuthProvider } from "./hooks/useAuth";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   const user =true;
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {user ? (
-          <>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="User" component={UserInfo} />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="Main" component={MainScreen} />
-            <Stack.Screen name="Signup" component={SignupScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
-          </>
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          {user ? (
+            <>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="User" component={UserInfo} />
+            </>
+          ) : (
+            <>
+              <Stack.Screen name="Main" component={MainScreen} />
+              <Stack.Screen name="Signup" component={SignupScreen} />
+              <Stack.Screen name="Login" component={LoginScreen} />
+            </>
+          )}
+        </Stack.Navigator>
+      </NavigationContainer>
+     </AuthProvider>
   );
 }

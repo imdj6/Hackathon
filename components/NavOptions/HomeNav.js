@@ -24,7 +24,7 @@ const HomeNav = () => {
   return (
     <>
       {/* Section of Adding friends and family members starts here */}
-      <View className="flex-row bg-white mt-1 p-2 items-center justify-between">
+      <View className="flex-row bg-white mt-0 p-2 items-center justify-between">
         <View>
           <Text className="font-bold text-xl text-[#E75480]">Add Friends</Text>
           <Text className="text-xs font-light text-red-400">
@@ -74,7 +74,7 @@ const HomeNav = () => {
             />
           </MapView>
         )}
-        <View className='absolute bottom-20 self-center'>
+        <View className="absolute bottom-20 self-center">
           <Button
             title="Track me"
             color={"#E75480"}

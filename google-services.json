@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "342821669054",
+    "project_id": "women-safety-app-24917",
+    "storage_bucket": "women-safety-app-24917.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342821669054:android:d93181dc619ee7f63eb6ef",
+        "android_client_info": {
+          "package_name": "com.imdj6.hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "342821669054-5aaso3qtev6gv5ek9utu2gl5t8hr57m2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC926qxERg1JqAhe1M3ESuNhKNzxlL3e6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "342821669054-5aaso3qtev6gv5ek9utu2gl5t8hr57m2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "342821669054-n91abgqdo0mem55hrnns6pflknkvb4vq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.imdj6.hackathon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

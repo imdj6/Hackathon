@@ -8,13 +8,14 @@ import UserInfo from "./UserInfo";
 import UserBoxes from "../../components/UserBoxes";
 import HomeNav from "../../components/NavOptions/HomeNav";
 import NavTab from "../../components/NavTab";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HelpLine from "../../components/NavOptions/HelpLine";
+import {MapPinIcon,MicrophoneIcon,BookOpenIcon,DevicePhoneMobileIcon,BellAlertIcon} from 'react-native-heroicons/solid'
+import ReadTab from "../../components/NavOptions/ReadTab";
+import RecordTab from "../../components/NavOptions/RecordTab";
 
 const HomeScreen = ({ navigation }) => {
-
-
-  const Stack = createNativeStackNavigator();
-
- 
+  const Tab = createBottomTabNavigator();
 
   return (
     <SafeAreaView className="flex-1 mt-9">
@@ -43,24 +44,63 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="NavigateCard"
-          component={
-            HomeNav
-          }
+      <Tab.Navigator>
+        <Tab.Screen
+          name="Track Me"
+          component={HomeNav}
           options={{
             headerShown: false,
+            tabBarIcon: () => (
+              <MapPinIcon color="black" size={25} />
+            ),
           }}
         />
-      </Stack.Navigator>
-      <NavTab/>
+        <Tab.Screen
+          name="Record"
+          component={HelpLine}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => (
+              <MicrophoneIcon color="black" size={25} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="SOS"
+          component={HelpLine}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => (
+              <BellAlertIcon color="red" size={25} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Read"
+          component={ReadTab}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => (
+              <BookOpenIcon color="black" size={25} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Helpline"
+          component={HelpLine}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => (
+              <DevicePhoneMobileIcon color="black" size={25} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+      {/* <NavTab /> */}
     </SafeAreaView>
   );
 };
 
 export default HomeScreen;
 
-
- 
-
+// BellAlertIcon
