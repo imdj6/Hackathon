@@ -17,7 +17,7 @@ To get started with the React Native Expo app, follow these steps:
 
 2. **Clone the Repository:** Clone this repository to your local machine using the following command:
      ```shell 
-    git clone https://github.com/your-username/your-repo.git
+      git clone https://github.com/imdj6/Hackathon.git
     ```
 
 3. **Install Dependencies:** Navigate to the cloned directory and install the project dependencies by running the following command:
