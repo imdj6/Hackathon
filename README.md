@@ -1,3 +1,4 @@
+![Screenshot_2023-04-28_13_10_28](https://github.com/imdj6/Hackathon/assets/81770608/4bb453d9-9c1d-4803-9adf-aa305b9b7128)
 # React Native Expo App
 
 This repository contains a React Native Expo app that serves as a starting point for building cross-platform mobile applications. The app is developed using React Native and leverages Expo, a powerful platform for developing, building, and deploying mobile apps with ease.
